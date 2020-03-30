@@ -74,19 +74,29 @@ class TestLab2(unittest.TestCase):
 	#@unittest.skip('Not yet implemented')
 	def test_s1c03_caesarEncrypt(self):
 		testCases = [
-			(b'Hello World', b'C2', b'1c0111001f010100061a024b53535009181c')
+			(b"hello world", b'c2', b'aaa7aeaeade2b5adb0aea6')
 
 		]
 		for plaintext, key, ciphertext in testCases:
 			self.assertEqual(caesarEncrypt(binascii.unhexlify(key), plaintext), binascii.unhexlify(ciphertext))
 
-	@unittest.skip('Not yet implemented')
+	#@unittest.skip('Not yet implemented')
 	def test_s1c03_caesarDecrypt(self):
-		self.assertEqual(True, False)
+		testCases = [
+			(b'aaa7aeaeade2b5adb0aea6',b'c2', b"hello world")
 
-	@unittest.skip('Not yet implemented')
+		]
+		for ciphertext, key, plaintext in testCases:
+			self.assertEqual(caesarDecrypt(binascii.unhexlify(key), binascii.unhexlify(ciphertext)), plaintext)
+
+	#@unittest.skip('Not yet implemented')
 	def test_s1c03_scoreText(self):
-		self.assertEqual(True, False)
+		testCases = [
+			(b'746865206b696420646f6e277420706c6179', 23)
+
+		]
+		for text, score in testCases:
+			self.assertEqual(scoreText(binascii.unhexlify(text)), score)
 
 
 	'''
